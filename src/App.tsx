@@ -13,6 +13,7 @@ import { useState } from "react";
 import { ClockLineMIcon } from "@alfalab/icons-glyph/ClockLineMIcon";
 import { BanknotesLineMIcon } from "@alfalab/icons-glyph/BanknotesLineMIcon";
 import { ThxLayout } from "./thx/ThxLayout.tsx";
+import { sendDataToGA } from "./utils/events.ts";
 
 interface Product {
   title: string;
@@ -113,9 +114,15 @@ export const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product>();
 
+  const clickCalc = () => {
+    window.gtag("event", "5472_get_sub", {
+      variant_name: "5472_1",
+    });
+  };
+
   const submit = () => {
     setIsLoading(true);
-    Promise.resolve().then(() => {
+    sendDataToGA({ type: selectedProduct?.title as string }).then(() => {
       setIsLoading(false);
       LS.setItem(LSKeys.ShowThx, true);
       setThxShow(true);
@@ -174,7 +181,9 @@ export const App = () => {
               block
               loading={isLoading}
               view="primary"
-              onClick={submit}
+              onClick={() => {
+                clickCalc();
+              }}
             >
               Перейти к калькулятору
             </ButtonMobile>
