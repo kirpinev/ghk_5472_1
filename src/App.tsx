@@ -179,7 +179,7 @@ export const App = () => {
                 clickCalc();
               }}
             >
-              Перейти к калькулятору
+              В калькулятор
             </ButtonMobile>
           </div>
         </div>
