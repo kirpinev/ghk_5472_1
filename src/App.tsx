@@ -157,7 +157,7 @@ export const App = () => {
                   tag="p"
                   defaultMargins={false}
                 >
-                  Просчитайте через калькулятор
+                  Рассчитайте сумму выплат
                 </Typography.Text>
                 <Gap size={8} />
                 <Typography.Text
@@ -165,7 +165,7 @@ export const App = () => {
                   tag="p"
                   defaultMargins={false}
                 >
-                  И узнайте какие выплаты вам положены
+                  Проверьте всё, что можете получить от государства
                 </Typography.Text>
               </div>
               <img src={hero} alt="" height={96} width={96} />
